@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>TripLogger - Automatic Mileage Tracker for iOS</title>
+    <meta name="title" content="TripLogger - Automatic Mileage Tracker for iOS">
+    <meta name="description" content="Automatic GPS mileage tracking for business trips. Track expenses, generate IRS-compliant reports. Download on App Store.">
+    <meta name="keywords" content="mileage tracker, trip logger, tax deduction, IRS mileage, business expenses, GPS tracker, iOS app">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://triplogger.app/">
+    <meta property="og:title" content="TripLogger - Automatic Mileage Tracker">
+    <meta property="og:description" content="Track every mile automatically. Maximize tax deductions with GPS-powered trip logging.">
+    <meta property="og:image" content="https://triplogger.app/images/og-image.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://triplogger.app/">
+    <meta property="twitter:title" content="TripLogger - Automatic Mileage Tracker">
+    <meta property="twitter:description" content="Automatic GPS mileage tracking for iOS">
+    <meta property="twitter:image" content="https://triplogger.app/images/og-image.png">
+
+    <!-- Mobile Optimization -->
+    <meta name="theme-color" content="#000000">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.ico">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom Styles -->
+    <style>
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .delay-100 { animation-delay: 0.1s; opacity: 0; }
+        .delay-200 { animation-delay: 0.2s; opacity: 0; }
+        .delay-300 { animation-delay: 0.3s; opacity: 0; }
+        .delay-400 { animation-delay: 0.4s; opacity: 0; }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(to bottom, #f9fafb, #ffffff);
+        }
+
+        .dark-gradient-bg {
+            background: linear-gradient(to bottom, #1f2937, #111827);
+        }
+    </style>
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MobileApplication",
+      "name": "TripLogger",
+      "operatingSystem": "iOS",
+      "applicationCategory": "BusinessApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Automatic mileage tracker for business trips with GPS tracking and expense management."
+    }
+    </script>
+</head>
+<body class="font-sans antialiased text-gray-900">
+
+    <!-- Hero Section -->
+    <section id="hero" class="min-h-screen gradient-bg flex items-center justify-center px-6 py-20">
+        <div class="max-w-7xl mx-auto w-full">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Left: Text Content -->
+                <div class="text-center lg:text-left fade-in-up">
+                    <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
+                        Track Every Mile,<br>
+                        <span class="text-gray-700">Maximize Your Tax Deductions</span>
+                    </h1>
+                    <p class="text-xl md:text-2xl text-gray-600 mb-8 fade-in-up delay-100">
+                        Automatic mileage tracking for business trips. Simple, accurate, IRS-compliant.
+                    </p>
+                    <a href="https://apps.apple.com/app/triplogger"
+                       class="inline-flex items-center gap-3 bg-black text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-gray-800 transition-colors shadow-lg fade-in-up delay-200">
+                        <svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                        </svg>
+                        Download on App Store
+                    </a>
+                    <p class="mt-4 text-sm text-gray-500 fade-in-up delay-300">3-Day Free Trial • No Credit Card Required</p>
+                </div>
+
+                <!-- Right: iPhone Mockup Placeholder -->
+                <div class="hidden lg:flex justify-center fade-in-up delay-400">
+                    <div class="w-80 h-[600px] bg-gray-200 rounded-[3rem] shadow-2xl flex items-center justify-center border-8 border-gray-800">
+                        <p class="text-gray-500 text-center px-8">
+                            📱<br>
+                            App Screenshot<br>
+                            (1290x2796px)
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Everything You Need</h2>
+                <p class="text-xl text-gray-600">Automatic tracking, expense management, and IRS-compliant reports</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition-shadow">
+                    <div class="text-5xl mb-4">🚗</div>
+                    <h3 class="text-2xl font-bold mb-3">Automatic Trip Detection</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        TripLogger uses GPS and motion sensors to automatically detect when you start driving. No manual start/stop required.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition-shadow">
+                    <div class="text-5xl mb-4">📊</div>
+                    <h3 class="text-2xl font-bold mb-3">Expense Management</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Track fuel, tolls, parking, and other trip-related expenses. Everything in one place for easy reporting.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition-shadow">
+                    <div class="text-5xl mb-4">📱</div>
+                    <h3 class="text-2xl font-bold mb-3">Simple Reports</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Generate IRS-compliant mileage logs with one tap. Export to PDF or CSV for your accountant.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshots Section -->
+    <section id="screenshots" class="py-20 px-6 gradient-bg">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">See TripLogger in Action</h2>
+                <p class="text-xl text-gray-600">Clean, minimal design that works</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Screenshot 1 -->
+                <div class="flex justify-center">
+                    <div class="w-64 h-[500px] bg-gray-200 rounded-[2.5rem] shadow-xl flex items-center justify-center border-4 border-gray-800">
+                        <p class="text-gray-500 text-center px-6">
+                            Trip List View<br>
+                            <span class="text-sm">(Screenshot 1)</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Screenshot 2 -->
+                <div class="flex justify-center">
+                    <div class="w-64 h-[500px] bg-gray-200 rounded-[2.5rem] shadow-xl flex items-center justify-center border-4 border-gray-800">
+                        <p class="text-gray-500 text-center px-6">
+                            Trip Details + Map<br>
+                            <span class="text-sm">(Screenshot 2)</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Screenshot 3 -->
+                <div class="flex justify-center">
+                    <div class="w-64 h-[500px] bg-gray-200 rounded-[2.5rem] shadow-xl flex items-center justify-center border-4 border-gray-800">
+                        <p class="text-gray-500 text-center px-6">
+                            Expense Tracking<br>
+                            <span class="text-sm">(Screenshot 3)</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="py-20 px-6 bg-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-16">How It Works</h2>
+
+            <div class="space-y-12">
+                <!-- Step 1 -->
+                <div class="flex flex-col md:flex-row items-center gap-6">
+                    <div class="flex-shrink-0 w-16 h-16 bg-black text-white rounded-full flex items-center justify-center text-2xl font-bold">
+                        1
+                    </div>
+                    <div class="text-left">
+                        <h3 class="text-2xl font-bold mb-2">Download</h3>
+                        <p class="text-gray-600 text-lg">Get TripLogger from the App Store and create your account in seconds.</p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="flex flex-col md:flex-row items-center gap-6">
+                    <div class="flex-shrink-0 w-16 h-16 bg-black text-white rounded-full flex items-center justify-center text-2xl font-bold">
+                        2
+                    </div>
+                    <div class="text-left">
+                        <h3 class="text-2xl font-bold mb-2">Drive</h3>
+                        <p class="text-gray-600 text-lg">The app automatically detects your trips using GPS and motion sensors.</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="flex flex-col md:flex-row items-center gap-6">
+                    <div class="flex-shrink-0 w-16 h-16 bg-black text-white rounded-full flex items-center justify-center text-2xl font-bold">
+                        3
+                    </div>
+                    <div class="text-left">
+                        <h3 class="text-2xl font-bold mb-2">Export</h3>
+                        <p class="text-gray-600 text-lg">Generate IRS-compliant reports and export them for tax season.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section id="cta" class="py-20 px-6 dark-gradient-bg text-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4">Start Tracking Your Miles Today</h2>
+            <p class="text-xl text-gray-300 mb-8">Join thousands of drivers saving on taxes</p>
+
+            <a href="https://apps.apple.com/app/triplogger"
+               class="inline-flex items-center gap-3 bg-white text-black px-8 py-4 rounded-xl text-lg font-semibold hover:bg-gray-100 transition-colors shadow-lg">
+                <svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                </svg>
+                Download on App Store
+            </a>
+
+            <div class="mt-6">
+                <span class="inline-block bg-green-500 text-white px-6 py-2 rounded-full text-sm font-semibold">
+                    3-Day Free Trial
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="text-center md:text-left">
+                    <p class="font-bold text-white text-lg mb-2">TripLogger</p>
+                    <p class="text-sm">© 2025 TripLogger. All rights reserved.</p>
+                </div>
+
+                <div class="flex gap-8 text-sm">
+                    <a href="/privacy.html" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="/terms.html" class="hover:text-white transition-colors">Terms of Service</a>
+                    <a href="mailto:support@triplogger.app" class="hover:text-white transition-colors">Support</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Smooth Scroll Animation Script -->
+    <script>
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section > div');
+            sections.forEach(section => observer.observe(section));
+        });
+    </script>
+</body>
+</html>
