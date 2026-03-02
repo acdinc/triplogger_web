@@ -3,1133 +3,163 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TripLogger | Automatic Mileage Tracking for iPhone</title>
-  <meta name="description" content="TripLogger automatically tracks business mileage on iPhone, classifies trips, tracks expenses, and exports IRS-ready reports with clean yearly stats." />
-  <meta name="keywords" content="mileage tracker iPhone, IRS mileage log, auto trip detection, business mileage app, trip logger" />
-  <meta name="theme-color" content="#F7F8F5" />
+  <title>TripLogger | Calm Mileage Tracking for iPhone</title>
+  <meta name="description" content="TripLogger helps iPhone drivers capture every business mile, stay organized all year, and export clean mileage records when it matters." />
+  <meta name="theme-color" content="#F6F7F3" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://triplogger.app/" />
-  <meta property="og:title" content="TripLogger | Automatic Mileage Tracking for iPhone" />
-  <meta property="og:description" content="Auto trip detection, clean mileage logs, expenses, reports, and year-to-date stats in one iPhone app." />
-  <meta property="og:image" content="https://triplogger.app/images/og-image.png" />
+  <meta property="og:title" content="TripLogger | Calm Mileage Tracking for iPhone" />
+  <meta property="og:description" content="A calmer way to capture business miles, stay organized, and keep tax time simple." />
+  <meta property="og:image" content="https://triplogger.app/images/screenshot.png" />
   <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:title" content="TripLogger | Automatic Mileage Tracking for iPhone" />
-  <meta property="twitter:description" content="Track mileage automatically, review trips, and export IRS-ready reports." />
-  <meta property="twitter:image" content="https://triplogger.app/images/og-image.png" />
+  <meta property="twitter:title" content="TripLogger | Calm Mileage Tracking for iPhone" />
+  <meta property="twitter:description" content="Capture every business mile without turning mileage tracking into extra work." />
+  <meta property="twitter:image" content="https://triplogger.app/images/screenshot.png" />
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Fraunces:opsz,wght@9..144,600&amp;display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Fraunces:opsz,wght@9..144,600&amp;display=swap" rel="stylesheet" />
   <style>
-    :root {
-      --bg-base: #F7F8F5;
-      --bg-elevated: #FFFFFF;
-      --text-primary: #1F2933;
-      --text-secondary: #5F6C7B;
-      --stroke-soft: #D9E0E8;
-      --accent-mint: #BEE8D5;
-      --accent-sky: #C8DFF6;
-      --accent-peach: #F8D9C4;
-      --accent-sand: #EDE3D4;
-      --accent-ink: #223041;
-      --success: #BFE5CC;
-      --shadow-soft: 0 12px 36px rgba(31, 41, 51, 0.06);
-      --shadow-card: 0 10px 24px rgba(31, 41, 51, 0.04);
-      --radius-xl: 22px;
-      --radius-lg: 18px;
-      --radius-md: 14px;
-      --max-width: 1160px;
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      background: radial-gradient(circle at 88% 8%, rgba(200,223,246,0.55), transparent 42%),
-                  radial-gradient(circle at 8% 16%, rgba(190,232,213,0.55), transparent 40%),
-                  var(--bg-base);
-      color: var(--text-primary);
-      font-family: "Manrope", ui-sans-serif, system-ui, -apple-system, sans-serif;
-      line-height: 1.5;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-    }
-
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
-
-    .container {
-      width: min(var(--max-width), calc(100% - 32px));
-      margin-inline: auto;
-    }
-
-    .section {
-      padding: 72px 0;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      border: 1px solid var(--stroke-soft);
-      background: rgba(255, 255, 255, 0.74);
-      padding: 8px 12px;
-      border-radius: 999px;
-      font-size: 12px;
-      letter-spacing: 0.04em;
-      color: var(--text-secondary);
-      backdrop-filter: blur(10px);
-    }
-
-    .eyebrow::before {
-      content: "";
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, var(--accent-mint), var(--accent-sky));
-      box-shadow: 0 0 0 4px rgba(190, 232, 213, 0.2);
-    }
-
-    .hero {
-      padding: 24px 0 48px;
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 12px 0 18px;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      backdrop-filter: blur(14px);
-      background: linear-gradient(to bottom, rgba(247,248,245,0.86), rgba(247,248,245,0.62));
-      border-bottom: 1px solid rgba(217,224,232,0.7);
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-    }
-
-    .brand-mark {
-      width: 28px;
-      height: 28px;
-      border-radius: 9px;
-      background: linear-gradient(140deg, var(--accent-mint), var(--accent-sky));
-      border: 1px solid rgba(31, 41, 51, 0.06);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .brand-mark::after {
-      content: "";
-      position: absolute;
-      inset: 6px;
-      border-radius: 6px;
-      border: 1.4px solid rgba(34, 48, 65, 0.34);
-      transform: rotate(-8deg);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 14px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .nav-links a {
-      font-size: 14px;
-      color: var(--text-secondary);
-      padding: 8px 10px;
-      border-radius: 10px;
-      transition: background-color .18s ease, color .18s ease;
-    }
-
-    .nav-links a:hover {
-      color: var(--text-primary);
-      background: rgba(255,255,255,0.7);
-    }
-
-    .nav-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 14px;
-      border-radius: 12px;
-      background: var(--accent-ink);
-      color: #fff;
-      font-size: 14px;
-      font-weight: 700;
-      box-shadow: 0 8px 20px rgba(34,48,65,0.18);
-    }
-
-    .hero-panel {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 22px;
-      align-items: stretch;
-      margin-top: 20px;
-    }
-
-    .hero-copy,
-    .hero-mock {
-      background: rgba(255,255,255,0.78);
-      border: 1px solid rgba(217,224,232,0.85);
-      border-radius: var(--radius-xl);
-      box-shadow: var(--shadow-soft);
-      backdrop-filter: blur(10px);
-    }
-
-    .hero-copy {
-      padding: 26px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-copy::after {
-      content: "";
-      position: absolute;
-      right: -70px;
-      top: -70px;
-      width: 180px;
-      height: 180px;
-      border-radius: 999px;
-      background: radial-gradient(circle, rgba(248,217,196,0.65), transparent 62%);
-      pointer-events: none;
-    }
-
-    h1 {
-      margin: 14px 0 14px;
-      font-family: "Fraunces", Georgia, serif;
-      font-weight: 600;
-      letter-spacing: -0.03em;
-      line-height: 1.02;
-      font-size: clamp(34px, 4.7vw, 64px);
-    }
-
-    .hero-subtitle {
-      margin: 0;
-      font-size: clamp(15px, 1.7vw, 19px);
-      color: var(--text-secondary);
-      max-width: 54ch;
-    }
-
-    .hero-actions {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-top: 20px;
-      flex-wrap: wrap;
-    }
-
-    .btn-primary,
-    .btn-secondary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      min-height: 48px;
-      padding: 0 16px;
-      border-radius: 14px;
-      font-weight: 700;
-      font-size: 14px;
-      transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease;
-    }
-
-    .btn-primary {
-      background: var(--accent-ink);
-      color: #fff;
-      box-shadow: 0 10px 24px rgba(34,48,65,0.18);
-    }
-
-    .btn-primary:hover { transform: translateY(-1px); }
-
-    .btn-secondary {
-      background: rgba(255,255,255,0.9);
-      color: var(--text-primary);
-      border: 1px solid var(--stroke-soft);
-    }
-
-    .hero-notes {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 10px;
-      margin-top: 20px;
-    }
-
-    .hero-note {
-      border-radius: 14px;
-      border: 1px solid var(--stroke-soft);
-      background: #fff;
-      padding: 12px;
-      min-height: 88px;
-    }
-
-    .hero-note strong {
-      display: block;
-      font-size: 13px;
-      margin-bottom: 6px;
-      letter-spacing: -0.01em;
-    }
-
-    .hero-note span {
-      color: var(--text-secondary);
-      font-size: 12px;
-      display: block;
-    }
-
-    .hero-mock {
-      padding: 20px;
-      display: grid;
-      gap: 14px;
-      background:
-        radial-gradient(circle at 12% 12%, rgba(190,232,213,0.45), transparent 42%),
-        radial-gradient(circle at 88% 16%, rgba(200,223,246,0.55), transparent 42%),
-        rgba(255,255,255,0.78);
-    }
-
-    .phone {
-      margin: 0 auto;
-      width: min(100%, 340px);
-      border-radius: 34px;
-      padding: 10px;
-      border: 1px solid rgba(31,41,51,0.12);
-      background: linear-gradient(180deg, #1e2731, #293745);
-      box-shadow: 0 28px 40px rgba(31,41,51,0.16);
-    }
-
-    .screen {
-      border-radius: 26px;
-      background: linear-gradient(180deg, #fbfcfa 0%, #f4f7f6 100%);
-      min-height: 560px;
-      border: 1px solid rgba(255,255,255,0.18);
-      padding: 14px;
-      display: grid;
-      grid-template-rows: auto auto auto 1fr auto;
-      gap: 10px;
-    }
-
-    .pill-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .pill {
-      border-radius: 999px;
-      background: #fff;
-      border: 1px solid var(--stroke-soft);
-      padding: 6px 10px;
-      font-size: 11px;
-      color: var(--text-secondary);
-      font-weight: 700;
-    }
-
-    .stat-strip {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 8px;
-    }
-
-    .stat-chip {
-      border-radius: 14px;
-      padding: 10px;
-      border: 1px solid var(--stroke-soft);
-      background: #fff;
-    }
-
-    .stat-chip b {
-      display: block;
-      font-size: 14px;
-      letter-spacing: -0.02em;
-    }
-
-    .stat-chip small {
-      color: var(--text-secondary);
-      font-size: 11px;
-    }
-
-    .map-card {
-      position: relative;
-      border-radius: 18px;
-      border: 1px solid var(--stroke-soft);
-      background:
-        linear-gradient(135deg, rgba(190,232,213,0.38), rgba(200,223,246,0.42)),
-        #fff;
-      overflow: hidden;
-      min-height: 244px;
-    }
-
-    .map-grid {
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(34,48,65,0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(34,48,65,0.05) 1px, transparent 1px);
-      background-size: 26px 26px;
-      opacity: .65;
-    }
-
-    .route {
-      position: absolute;
-      inset: 18px;
-      pointer-events: none;
-    }
-
-    .route path {
-      fill: none;
-      stroke: rgba(34,48,65,0.78);
-      stroke-width: 4.5;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      stroke-dasharray: 8 6;
-      animation: dashMove 22s linear infinite;
-    }
-
-    .route path.secondary {
-      stroke: rgba(255,255,255,0.75);
-      stroke-width: 8;
-      stroke-dasharray: none;
-    }
-
-    @keyframes dashMove {
-      from { stroke-dashoffset: 0; }
-      to { stroke-dashoffset: -280; }
-    }
-
-    .map-bubble {
-      position: absolute;
-      border-radius: 999px;
-      padding: 8px 12px;
-      border: 1px solid rgba(31,41,51,0.08);
-      background: rgba(255,255,255,0.92);
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--text-primary);
-      box-shadow: var(--shadow-card);
-    }
-
-    .map-bubble small {
-      display: block;
-      font-weight: 600;
-      color: var(--text-secondary);
-      font-size: 10px;
-    }
-
-    .bubble-1 { top: 14px; left: 14px; }
-    .bubble-2 { right: 14px; top: 56px; background: rgba(255,255,255,0.96); }
-    .bubble-3 { left: 50%; bottom: 14px; transform: translateX(-50%); }
-
-    .live-card {
-      border-radius: 16px;
-      background: #fff;
-      border: 1px solid var(--stroke-soft);
-      padding: 12px;
-      display: grid;
-      gap: 10px;
-      box-shadow: var(--shadow-card);
-    }
-
-    .live-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-      font-size: 12px;
-      color: var(--text-secondary);
-    }
-
-    .live-header b {
-      color: var(--text-primary);
-      font-size: 13px;
-    }
-
-    .meter-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 8px;
-    }
-
-    .meter {
-      border-radius: 12px;
-      padding: 10px;
-      border: 1px solid var(--stroke-soft);
-      background: linear-gradient(180deg, #fff, #fafbfb);
-    }
-
-    .meter .value {
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      font-size: 13px;
-    }
-
-    .meter .label {
-      color: var(--text-secondary);
-      font-size: 10px;
-      margin-top: 2px;
-    }
-
-    .panel-title {
-      margin: 0;
-      font-size: clamp(28px, 3.1vw, 44px);
-      line-height: 1.05;
-      letter-spacing: -0.03em;
-      font-family: "Fraunces", Georgia, serif;
-      font-weight: 600;
-    }
-
-    .panel-subtitle {
-      margin: 10px 0 0;
-      color: var(--text-secondary);
-      max-width: 62ch;
-      font-size: 15px;
-    }
-
-    .feature-grid {
-      margin-top: 18px;
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    .feature-card {
-      border: 1px solid var(--stroke-soft);
-      background: rgba(255,255,255,0.92);
-      border-radius: var(--radius-lg);
-      padding: 16px;
-      box-shadow: var(--shadow-card);
-    }
-
-    .feature-badge {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 34px;
-      height: 34px;
-      border-radius: 12px;
-      font-size: 12px;
-      font-weight: 800;
-      color: var(--accent-ink);
-      margin-bottom: 10px;
-      border: 1px solid rgba(34,48,65,0.08);
-    }
-
-    .feature-card:nth-child(1) .feature-badge { background: var(--accent-mint); }
-    .feature-card:nth-child(2) .feature-badge { background: var(--accent-sky); }
-    .feature-card:nth-child(3) .feature-badge { background: var(--accent-peach); }
-    .feature-card:nth-child(4) .feature-badge { background: var(--accent-sand); }
-    .feature-card:nth-child(5) .feature-badge { background: rgba(190,232,213,0.7); }
-    .feature-card:nth-child(6) .feature-badge { background: rgba(200,223,246,0.7); }
-
-    .feature-card h3 {
-      margin: 0 0 6px;
-      font-size: 16px;
-      letter-spacing: -0.02em;
-    }
-
-    .feature-card p {
-      margin: 0;
-      color: var(--text-secondary);
-      font-size: 13px;
-    }
-
-    .story-grid {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 16px;
-      margin-top: 18px;
-    }
-
-    .card {
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--stroke-soft);
-      background: rgba(255,255,255,0.9);
-      box-shadow: var(--shadow-card);
-    }
-
-    .workflow {
-      padding: 18px;
-      display: grid;
-      gap: 12px;
-    }
-
-    .step {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 12px;
-      align-items: start;
-      padding: 12px;
-      border-radius: 14px;
-      border: 1px solid rgba(217,224,232,0.85);
-      background: linear-gradient(180deg, #fff, #fbfcfb);
-    }
-
-    .step-index {
-      width: 34px;
-      height: 34px;
-      border-radius: 12px;
-      display: grid;
-      place-items: center;
-      background: var(--accent-ink);
-      color: #fff;
-      font-size: 12px;
-      font-weight: 800;
-    }
-
-    .step h4 {
-      margin: 1px 0 4px;
-      font-size: 14px;
-      letter-spacing: -0.01em;
-    }
-
-    .step p {
-      margin: 0;
-      color: var(--text-secondary);
-      font-size: 12px;
-    }
-
-    .proof-panel {
-      padding: 18px;
-      display: grid;
-      gap: 12px;
-      align-content: start;
-    }
-
-    .proof-stat {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 12px;
-      align-items: center;
-      padding: 12px;
-      border-radius: 14px;
-      border: 1px solid rgba(217,224,232,0.85);
-      background: #fff;
-    }
-
-    .proof-color {
-      width: 12px;
-      height: 36px;
-      border-radius: 999px;
-    }
-
-    .proof-stat:nth-child(1) .proof-color { background: linear-gradient(180deg, var(--accent-mint), #98d7bb); }
-    .proof-stat:nth-child(2) .proof-color { background: linear-gradient(180deg, var(--accent-sky), #a7cdee); }
-    .proof-stat:nth-child(3) .proof-color { background: linear-gradient(180deg, var(--accent-peach), #f1c7ac); }
-
-    .proof-stat strong {
-      display: block;
-      font-size: 14px;
-      letter-spacing: -0.02em;
-    }
-
-    .proof-stat span {
-      color: var(--text-secondary);
-      font-size: 12px;
-      display: block;
-    }
-
-    .metrics-grid {
-      margin-top: 18px;
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 12px;
-    }
-
-    .metric {
-      border: 1px solid var(--stroke-soft);
-      border-radius: 16px;
-      background: rgba(255,255,255,0.92);
-      padding: 14px;
-      box-shadow: var(--shadow-card);
-    }
-
-    .metric b {
-      display: block;
-      font-size: 18px;
-      letter-spacing: -0.03em;
-      margin-bottom: 4px;
-    }
-
-    .metric span {
-      display: block;
-      color: var(--text-secondary);
-      font-size: 12px;
-    }
-
-    .cta-shell {
-      position: relative;
-      overflow: hidden;
-      border-radius: 24px;
-      border: 1px solid rgba(34,48,65,0.1);
-      background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.72));
-      box-shadow: var(--shadow-soft);
-      padding: 22px;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 16px;
-      align-items: center;
-    }
-
-    .cta-shell::before,
-    .cta-shell::after {
-      content: "";
-      position: absolute;
-      border-radius: 999px;
-      pointer-events: none;
-    }
-
-    .cta-shell::before {
-      width: 220px;
-      height: 220px;
-      right: -64px;
-      top: -74px;
-      background: radial-gradient(circle, rgba(200,223,246,0.55), transparent 65%);
-    }
-
-    .cta-shell::after {
-      width: 180px;
-      height: 180px;
-      left: -48px;
-      bottom: -62px;
-      background: radial-gradient(circle, rgba(190,232,213,0.5), transparent 64%);
-    }
-
-    .cta-shell h3 {
-      margin: 0;
-      font-family: "Fraunces", Georgia, serif;
-      font-size: clamp(24px, 2.6vw, 36px);
-      line-height: 1.08;
-      letter-spacing: -0.03em;
-    }
-
-    .cta-shell p {
-      margin: 8px 0 0;
-      color: var(--text-secondary);
-      font-size: 14px;
-    }
-
-    .cta-actions {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .footer {
-      padding: 34px 0 46px;
-      color: var(--text-secondary);
-    }
-
-    .footer-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 14px;
-      align-items: center;
-      flex-wrap: wrap;
-      border-top: 1px solid rgba(217,224,232,0.95);
-      padding-top: 18px;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    .footer-links a {
-      font-size: 13px;
-      padding: 8px 10px;
-      border-radius: 10px;
-      border: 1px solid transparent;
-    }
-
-    .footer-links a:hover {
-      border-color: var(--stroke-soft);
-      color: var(--text-primary);
-      background: rgba(255,255,255,0.7);
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(18px);
-      transition: opacity .55s ease, transform .55s ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @media (max-width: 980px) {
-      .hero-panel,
-      .story-grid,
-      .cta-shell {
-        grid-template-columns: 1fr;
-      }
-
-      .feature-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .metrics-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .cta-actions {
-        justify-content: flex-start;
-      }
-
-      .hero-mock {
-        order: -1;
-      }
-
-      .nav-links a.hide-sm {
-        display: none;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .section { padding: 54px 0; }
-      .hero { padding-bottom: 28px; }
-      .hero-copy, .hero-mock { border-radius: 18px; }
-      .hero-copy { padding: 18px; }
-      .hero-notes { grid-template-columns: 1fr; }
-      .stat-strip, .meter-grid { grid-template-columns: 1fr; }
-      .screen { min-height: 0; }
-      .metrics-grid { grid-template-columns: 1fr; }
-      .nav-cta { padding-inline: 12px; }
-      .nav-links { gap: 6px; }
-      .nav-links a { font-size: 13px; }
+    :root { --bg:#f6f7f3; --surface:rgba(255,255,255,.82); --text:#1f2a33; --muted:#65717d; --line:#d7deda; --ink:#22313e; --mint:#c7e9d8; --sky:#d6e6f8; --sand:#ebe4d8; --peach:#f7dcc9; --shadow:0 16px 40px rgba(31,42,51,.08); --shadow-soft:0 10px 24px rgba(31,42,51,.05); --radius-xl:28px; --radius-lg:22px; --max:1120px; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; font-family:"Manrope",ui-sans-serif,system-ui,-apple-system,sans-serif; color:var(--text); background:radial-gradient(circle at 10% 12%, rgba(199,233,216,.7), transparent 34%), radial-gradient(circle at 88% 10%, rgba(214,230,248,.72), transparent 34%), var(--bg); line-height:1.5; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
+    img { display:block; max-width:100%; }
+    a { color:inherit; text-decoration:none; }
+    .container { width:min(var(--max), calc(100% - 32px)); margin:0 auto; }
+    .nav { position:sticky; top:0; z-index:10; backdrop-filter:blur(14px); background:linear-gradient(to bottom, rgba(246,247,243,.92), rgba(246,247,243,.76)); border-bottom:1px solid rgba(215,222,218,.8); }
+    .nav-inner { display:flex; align-items:center; justify-content:space-between; gap:12px; min-height:72px; }
+    .brand { display:inline-flex; align-items:center; gap:10px; font-size:15px; font-weight:800; letter-spacing:-.02em; }
+    .brand-mark { width:30px; height:30px; border-radius:10px; border:1px solid rgba(31,42,51,.08); background:linear-gradient(145deg, var(--mint), var(--sky)); padding:3px; box-shadow:var(--shadow-soft); }
+    .brand-mark img { width:100%; height:100%; object-fit:cover; border-radius:7px; }
+    .nav-actions { display:flex; align-items:center; gap:10px; }
+    .nav-link,.nav-cta,.hero-cta,.hero-secondary,.cta-button { display:inline-flex; align-items:center; justify-content:center; min-height:46px; padding:0 16px; border-radius:14px; font-size:14px; font-weight:700; transition:transform .18s ease, box-shadow .18s ease, background-color .18s ease; }
+    .nav-link,.hero-secondary { border:1px solid var(--line); background:rgba(255,255,255,.78); }
+    .nav-cta,.hero-cta,.cta-button { background:var(--ink); color:#fff; box-shadow:0 10px 24px rgba(34,49,62,.16); }
+    .hero { padding:28px 0 44px; }
+    .hero-grid { display:grid; grid-template-columns:1fr; gap:22px; }
+    .hero-copy,.panel,.cta-panel { border-radius:var(--radius-xl); border:1px solid rgba(215,222,218,.88); background:var(--surface); box-shadow:var(--shadow); backdrop-filter:blur(10px); }
+    .hero-copy { padding:28px; position:relative; overflow:hidden; }
+    .hero-copy::after { content:""; position:absolute; right:-48px; top:-42px; width:180px; height:180px; border-radius:50%; background:radial-gradient(circle, rgba(247,220,201,.74), transparent 62%); pointer-events:none; }
+    .eyebrow { display:inline-flex; align-items:center; gap:8px; min-height:34px; padding:0 12px; border-radius:999px; border:1px solid var(--line); background:rgba(255,255,255,.86); font-size:12px; font-weight:700; color:var(--muted); letter-spacing:.03em; }
+    .eyebrow::before { content:""; width:8px; height:8px; border-radius:50%; background:linear-gradient(135deg, var(--mint), var(--sky)); box-shadow:0 0 0 4px rgba(199,233,216,.22); }
+    .hero-showcase { display:grid; grid-template-columns:1fr .9fr; gap:24px; align-items:center; }
+    h1,h2 { margin:0; font-family:"Fraunces", Georgia, serif; font-weight:600; letter-spacing:-.03em; line-height:1.04; }
+    h1 { font-size:clamp(36px, 5vw, 62px); max-width:9ch; }
+    h2 { font-size:clamp(28px, 3vw, 44px); }
+    .hero-copy p,.section-subtitle,.benefit-copy,.mode-copy,.cta-copy,footer { color:var(--muted); }
+    .hero-copy p { margin:16px 0 0; max-width:34rem; font-size:clamp(15px, 1.7vw, 18px); }
+    .hero-actions { display:flex; gap:12px; flex-wrap:wrap; margin-top:22px; }
+    .hero-device { display:grid; place-items:center; }
+    .phone { width:min(100%, 237px); padding:16px 10px 10px; border-radius:40px; border:1px solid rgba(31,42,51,.12); background:linear-gradient(180deg, #1f2933, #2a3744); box-shadow:0 28px 48px rgba(31,42,51,.18); position:relative; }
+    .phone::before { content:""; position:absolute; top:7px; left:50%; transform:translateX(-50%); width:82px; height:7px; border-radius:999px; background:rgba(10,14,20,.9); box-shadow:inset 0 1px 0 rgba(255,255,255,.04); }
+    .screen { border-radius:30px; overflow:hidden; aspect-ratio:9 / 19.5; background:#0f1720; border:1px solid rgba(255,255,255,.18); position:relative; }
+    .screen::after { content:""; position:absolute; inset:0; pointer-events:none; background:linear-gradient(180deg, rgba(255,255,255,.08), transparent 12%, transparent 88%, rgba(31,42,51,.08)); }
+    .device-shot { width:100%; height:100%; object-fit:cover; object-position:top center; }
+    .section { padding:22px 0 0; }
+    .panel,.cta-panel { padding:24px; }
+    .section-heading { display:flex; flex-direction:column; gap:14px; margin-bottom:28px; }
+    .section-heading h2 { margin:2px 0; }
+    .section-subtitle { margin:0; max-width:42rem; font-size:15px; }
+    .modes,.benefits { display:grid; gap:14px; }
+    .modes { grid-template-columns:repeat(3, minmax(0,1fr)); }
+    .benefits { grid-template-columns:repeat(3, minmax(0,1fr)); }
+    .mode-card,.benefit-card { min-height:208px; border-radius:var(--radius-lg); border:1px solid rgba(215,222,218,.84); background:rgba(255,255,255,.86); box-shadow:var(--shadow-soft); padding:20px; }
+    .mode-mark,.benefit-mark { width:46px; height:46px; border-radius:14px; display:inline-flex; align-items:center; justify-content:center; margin-bottom:16px; color:var(--text); }
+    .mode-mark svg,.benefit-mark svg { width:22px; height:22px; stroke:currentColor; fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+    .mode-mark.auto { background:var(--sky); } .mode-mark.live { background:var(--mint); } .mode-mark.manual { background:var(--sand); }
+    .benefit-mark.reminders { background:var(--mint); } .benefit-mark.ai { background:var(--sky); } .benefit-mark.expenses { background:var(--peach); }
+    .mode-card h3,.benefit-card h3 { margin:0; font-size:17px; line-height:1.2; letter-spacing:-.02em; }
+    .mode-copy,.benefit-copy,.cta-copy { margin:10px 0 0; font-size:14px; }
+    .cta-panel { width:min(100%, 960px); margin:22px auto 48px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px; text-align:center; background:linear-gradient(135deg, rgba(214,230,248,.34), transparent 42%), linear-gradient(315deg, rgba(199,233,216,.28), transparent 48%), rgba(255,255,255,.84); }
+    footer { padding:0 0 36px; font-size:13px; text-align:center; }
+    @media (max-width: 960px) { .hero-showcase,.modes,.benefits { grid-template-columns:1fr; } .hero-grid { gap:16px; } }
+    @media (max-width: 680px) {
+      .nav-inner { min-height:64px; }
+      .nav-link { display:none; }
+      .hero,.section { padding-top:18px; }
+      .hero-copy,.panel,.cta-panel { padding:18px; border-radius:22px; }
+      .phone { width:min(100%, 208px); border-radius:34px; padding:14px 8px 8px; }
+      .screen { border-radius:24px; }
+      h1 { max-width:none; }
     }
   </style>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "MobileApplication",
-    "name": "TripLogger",
-    "operatingSystem": "iOS",
-    "applicationCategory": "BusinessApplication",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
-    },
-    "description": "Automatic mileage tracking for business trips with GPS trip detection, expense tracking, and exportable reports."
-  }
-  </script>
 </head>
 <body>
-  <div class="container">
-    <nav class="nav" aria-label="Primary">
-      <a class="brand" href="#top" aria-label="TripLogger home">
-        <span class="brand-mark" aria-hidden="true"></span>
-        <span>TripLogger</span>
-      </a>
-      <div class="nav-links">
-        <a class="hide-sm" href="#features">Features</a>
-        <a class="hide-sm" href="#how-it-works">How it Works</a>
-        <a class="hide-sm" href="#reports">Reports</a>
-        <a href="#download" class="nav-cta">Get the iPhone App</a>
-      </div>
-    </nav>
-  </div>
-
-  <header class="hero" id="top">
-    <div class="container">
-      <div class="hero-panel reveal">
-        <section class="hero-copy" aria-labelledby="hero-title">
-          <span class="eyebrow">Automatic mileage tracking for iPhone</span>
-          <h1 id="hero-title">A calmer way to track business miles.</h1>
-          <p class="hero-subtitle">
-            TripLogger detects trips in the background, keeps your mileage logs organized, tracks related expenses,
-            and helps you export IRS-ready reports without turning tax season into a second job.
-          </p>
-          <div class="hero-actions" id="download">
-            <a class="btn-primary" href="https://apps.apple.com/app/triplogger" target="_blank" rel="noopener noreferrer">
-              Download on App Store
-            </a>
-            <a class="btn-secondary" href="#features">See features</a>
-          </div>
-          <div class="hero-notes" aria-label="Highlights">
-            <div class="hero-note">
-              <strong>Auto + Manual Trips</strong>
-              <span>Start yourself or let motion and GPS detection do it automatically.</span>
-            </div>
-            <div class="hero-note">
-              <strong>Year-to-Date Insight</strong>
-              <span>Fast yearly summary cards and detailed stats when you need them.</span>
-            </div>
-            <div class="hero-note">
-              <strong>IRS Workflow</strong>
-              <span>Mileage rates, exports, and reports built for real filing prep.</span>
-            </div>
-          </div>
-        </section>
-
-        <section class="hero-mock" aria-label="TripLogger app preview">
-          <div class="phone">
-            <div class="screen">
-              <div class="pill-row">
-                <span class="pill">Auto Trip: ON</span>
-                <span class="pill">YTD • 2026</span>
-              </div>
-
-              <div class="stat-strip" aria-hidden="true">
-                <div class="stat-chip">
-                  <b>1,842 mi</b>
-                  <small>Year to date</small>
-                </div>
-                <div class="stat-chip">
-                  <b>$1,240</b>
-                  <small>Deduction est.</small>
-                </div>
-                <div class="stat-chip">
-                  <b>74 trips</b>
-                  <small>Saved trips</small>
-                </div>
-              </div>
-
-              <div class="map-card" aria-hidden="true">
-                <div class="map-grid"></div>
-                <svg class="route" viewBox="0 0 300 220" preserveAspectRatio="none">
-                  <path class="secondary" d="M20 180 C 70 170, 80 140, 120 132 S 180 120, 190 84 S 246 50, 280 44" />
-                  <path d="M20 180 C 70 170, 80 140, 120 132 S 180 120, 190 84 S 246 50, 280 44" />
-                </svg>
-                <div class="map-bubble bubble-1">Auto Trip Started<small>background detection</small></div>
-                <div class="map-bubble bubble-2">Live Status<small>distance • duration • speed</small></div>
-                <div class="map-bubble bubble-3">Saved to timeline<small>review before export</small></div>
-              </div>
-
-              <div class="live-card" aria-hidden="true">
-                <div class="live-header"><b>Current trip</b><span>Active • Lock screen widget supported</span></div>
-                <div class="meter-grid">
-                  <div class="meter"><div class="value">21 min</div><div class="label">Duration</div></div>
-                  <div class="meter"><div class="value">16.4 mi</div><div class="label">Distance</div></div>
-                  <div class="meter"><div class="value">44 mph</div><div class="label">Avg Speed</div></div>
-                </div>
-              </div>
-
-              <div class="pill-row" aria-hidden="true">
-                <span class="pill">Reports • CSV • PDF</span>
-                <span class="pill">Offline-safe saves</span>
-              </div>
-            </div>
-          </div>
-        </section>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top" aria-label="TripLogger home"><span class="brand-mark" aria-hidden="true"><img src="images/app-icon.png" alt="" /></span><span>TripLogger</span></a>
+      <div class="nav-actions">
+        <a class="nav-link" href="#capture">How it works</a>
+        <a class="nav-cta" href="https://apps.apple.com/app/id675144677" target="_blank" rel="noopener noreferrer">App Store</a>
       </div>
     </div>
   </header>
 
-  <main>
-    <section class="section" id="features">
-      <div class="container">
-        <div class="reveal">
-          <span class="eyebrow">Built around the real trip workflow</span>
-          <h2 class="panel-title">Capture, review, classify, export.</h2>
-          <p class="panel-subtitle">
-            TripLogger is designed for drivers who need reliable mileage records without babysitting an app while driving.
-            Automatic detection is supported, manual recording remains available, and the data stays easy to review later.
-          </p>
-
-          <div class="feature-grid">
-            <article class="feature-card">
-              <div class="feature-badge">AUTO</div>
-              <h3>Automatic trip detection</h3>
-              <p>Background motion and location monitoring starts recording when a drive is detected, even after app termination.</p>
-            </article>
-            <article class="feature-card">
-              <div class="feature-badge">LIVE</div>
-              <h3>Live trip status</h3>
-              <p>In-progress trip metrics are available in app and can surface on the lock screen / widget path on supported iOS setups.</p>
-            </article>
-            <article class="feature-card">
-              <div class="feature-badge">MAP</div>
-              <h3>Route + timeline review</h3>
-              <p>See the recorded route, inspect trip details, and edit before saving so your log stays clean.</p>
-            </article>
-            <article class="feature-card">
-              <div class="feature-badge">YTD</div>
-              <h3>Fast yearly summaries</h3>
-              <p>Year-to-date totals load instantly from local cache while deeper chart data loads on demand.</p>
-            </article>
-            <article class="feature-card">
-              <div class="feature-badge">IRS</div>
-              <h3>IRS mileage support</h3>
-              <p>Mileage rates by year, deduction calculations, and report exports help prepare for tax filing and accounting workflows.</p>
-            </article>
-            <article class="feature-card">
-              <div class="feature-badge">EXP</div>
-              <h3>Expense + transaction tracking</h3>
-              <p>Keep fuel, tolls, parking, income, and related records in the same place as your trips.</p>
-            </article>
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <section class="hero-copy" aria-labelledby="hero-title">
+          <div class="hero-showcase">
+            <div>
+              <h1 id="hero-title">A calmer way to keep every business mile.</h1>
+              <p>TripLogger helps you capture mileage without turning your day into manual admin. Review clean records, stay organized year-round, and keep tax time simple.</p>
+              <div class="hero-actions">
+                <a class="hero-cta" href="https://apps.apple.com/app/id675144677" target="_blank" rel="noopener noreferrer">Get the app</a>
+                <a class="hero-secondary" href="#capture">See how trips are saved</a>
+              </div>
+            </div>
+            <div class="hero-device" aria-label="TripLogger app screenshot inside an iPhone frame">
+              <div class="phone"><div class="screen"><img class="device-shot" src="images/screenshot.png" alt="TripLogger app screenshot shown inside an iPhone frame" /></div></div>
+            </div>
           </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="section" id="capture">
+      <div class="container panel">
+        <div class="section-heading">
+          <span class="eyebrow">Three ways to save a trip</span>
+          <h2>Log mileage the way your day actually works.</h2>
+          <p class="section-subtitle">TripLogger stays focused: three clean ways to record a trip, depending on how automatic or hands-on you want the experience to be.</p>
+        </div>
+        <div class="modes">
+          <article class="mode-card"><div class="mode-mark auto" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 12c1.8-4.2 5-6.3 9-6.3s7.2 2.1 9 6.3" /><path d="M5.5 14.5h13" /><path d="M7.5 14.5l1.4-3.5h6.2l1.4 3.5" /><circle cx="8.2" cy="17.2" r="1.1" /><circle cx="15.8" cy="17.2" r="1.1" /></svg></div><h3>Auto Trip Detection</h3><p class="mode-copy">Let the app detect driving in the background and start building the trip for you.</p></article>
+          <article class="mode-card"><div class="mode-mark live" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7.2" /><circle cx="12" cy="12" r="1.9" fill="currentColor" stroke="none" /><path d="M12 4.8v1.8M12 17.4v1.8M4.8 12h1.8M17.4 12h1.8" /></svg></div><h3>Live Trip Recording</h3><p class="mode-copy">Start a trip yourself when you want full live visibility while you drive.</p></article>
+          <article class="mode-card"><div class="mode-mark manual" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 6.5h7.5" /><path d="M7 11.5h4.5" /><path d="M7 16.5h3.5" /><path d="M15.5 14v6" /><path d="M12.5 17h6" /><rect x="5" y="4.5" width="10" height="14" rx="2.2" /></svg></div><h3>Manual Add Trip</h3><p class="mode-copy">Backfill past mileage when you need to add a trip after the fact.</p></article>
         </div>
       </div>
     </section>
 
-    <section class="section" id="how-it-works">
-      <div class="container">
-        <div class="reveal">
-          <span class="eyebrow">How the flow works</span>
-          <h2 class="panel-title">Designed to reduce taps while driving.</h2>
-          <p class="panel-subtitle">
-            The ideal path is simple: enable permissions once, let trips get detected, review what matters later, then export when needed.
-          </p>
-
-          <div class="story-grid">
-            <section class="card workflow" aria-label="Steps">
-              <div class="step">
-                <div class="step-index">1</div>
-                <div>
-                  <h4>Set up once</h4>
-                  <p>Sign in, choose your vehicle, enable location and motion permissions, and turn on auto trip monitoring.</p>
-                </div>
-              </div>
-              <div class="step">
-                <div class="step-index">2</div>
-                <div>
-                  <h4>Drive normally</h4>
-                  <p>TripLogger detects movement, starts recording in the background, and maintains trip state for later recovery.</p>
-                </div>
-              </div>
-              <div class="step">
-                <div class="step-index">3</div>
-                <div>
-                  <h4>Review and classify</h4>
-                  <p>Open the app, confirm route details, mark business/personal, and add notes or expenses if needed.</p>
-                </div>
-              </div>
-              <div class="step">
-                <div class="step-index">4</div>
-                <div>
-                  <h4>Export when needed</h4>
-                  <p>Generate clean reports and share CSV/PDF exports with your accountant or back-office workflows.</p>
-                </div>
-              </div>
-            </section>
-
-            <aside class="card proof-panel" aria-label="Key outcomes">
-              <div class="proof-stat">
-                <div class="proof-color" aria-hidden="true"></div>
-                <div>
-                  <strong>Auto trip + manual fallback</strong>
-                  <span>Critical for reliability when background conditions vary across iOS states.</span>
-                </div>
-              </div>
-              <div class="proof-stat">
-                <div class="proof-color" aria-hidden="true"></div>
-                <div>
-                  <strong>Yearly summary first, detail on demand</strong>
-                  <span>Fast stats screen opening without forcing a heavy full-year chart fetch for every render.</span>
-                </div>
-              </div>
-              <div class="proof-stat">
-                <div class="proof-color" aria-hidden="true"></div>
-                <div>
-                  <strong>Report-focused data model</strong>
-                  <span>Trips, expenses, vehicles, and rates are kept close so export preparation is faster and less error-prone.</span>
-                </div>
-              </div>
-            </aside>
-          </div>
+    <section class="section" id="benefits">
+      <div class="container panel">
+        <div class="section-heading">
+          <span class="eyebrow">Beyond trip capture</span>
+          <h2>Keep the rest of the admin under control.</h2>
+          <p class="section-subtitle">TripLogger also helps you stay ahead of follow-ups, understand your records faster, and keep spending attached to the work that created it.</p>
         </div>
-      </div>
-    </section>
-
-    <section class="section" id="reports">
-      <div class="container">
-        <div class="reveal">
-          <span class="eyebrow">Reporting and insight</span>
-          <h2 class="panel-title">Useful daily. Ready for filing season.</h2>
-          <p class="panel-subtitle">
-            TripLogger focuses on operational accuracy first, then reporting speed. You can manage current trips and still get a clean annual view when you need it.
-          </p>
-
-          <div class="metrics-grid" aria-label="Reporting highlights">
-            <article class="metric">
-              <b>Year-to-Date cards</b>
-              <span>Fast cached totals for distance, trips, duration, and estimated deduction.</span>
-            </article>
-            <article class="metric">
-              <b>Lazy-loaded charts</b>
-              <span>Detailed yearly graphs load on demand, reducing duplicate heavy requests.</span>
-            </article>
-            <article class="metric">
-              <b>IRS rates by year</b>
-              <span>Current and historical mileage rate references directly in app settings and reports.</span>
-            </article>
-            <article class="metric">
-              <b>CSV / PDF exports</b>
-              <span>Shareable outputs for accounting, reimbursement, and record keeping workflows.</span>
-            </article>
-          </div>
+        <div class="benefits">
+          <article class="benefit-card"><div class="benefit-mark reminders" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8.2 17.2h7.6" /><path d="M9 8.4a3 3 0 0 1 6 0v3.2c0 .8.3 1.6.9 2.2l1 1.1H7.1l1-1.1c.6-.6.9-1.4.9-2.2Z" /><path d="M10.3 17.2a1.7 1.7 0 0 0 3.4 0" /></svg></div><h3>Stay ahead of important reminders</h3><p class="benefit-copy">Keep recurring tasks, deadlines, and follow-ups visible before they become last-minute work.</p></article>
+          <article class="benefit-card"><div class="benefit-mark ai" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 4.2v3.2M12 16.6v3.2M4.2 12h3.2M16.6 12h3.2M6.8 6.8l2.2 2.2M15 15l2.2 2.2M17.2 6.8L15 9M9 15l-2.2 2.2" /><circle cx="12" cy="12" r="2.8" /></svg></div><h3>Get clarity from your data faster</h3><p class="benefit-copy">Use AI to turn saved trips and records into answers, instead of manually digging through screens.</p></article>
+          <article class="benefit-card"><div class="benefit-mark expenses" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 8.2h8M8 12h5M8 15.8h4" /><path d="M15.5 4.8H6.8a1.8 1.8 0 0 0-1.8 1.8v10.8a1.8 1.8 0 0 0 1.8 1.8h10.4a1.8 1.8 0 0 0 1.8-1.8V8.3Z" /><path d="M15.2 4.8v3.5h3.8" /></svg></div><h3>Keep expenses tied to the work</h3><p class="benefit-copy">Attach spending to the trips behind it so your records stay cleaner and easier to trust later.</p></article>
         </div>
       </div>
     </section>
 
     <section class="section">
-      <div class="container">
-        <div class="cta-shell reveal">
-          <div>
-            <span class="eyebrow">iPhone app • Business mileage</span>
-            <h3>Make mileage logging one less thing to think about.</h3>
-            <p>
-              TripLogger is built for repeatable, low-friction trip capture and cleaner reporting. Install it, enable permissions once, and let the app do the routine work.
-            </p>
-          </div>
-          <div class="cta-actions">
-            <a class="btn-primary" href="https://apps.apple.com/app/triplogger" target="_blank" rel="noopener noreferrer">Download on App Store</a>
-            <a class="btn-secondary" href="mailto:support@triplogger.app">Contact support</a>
-          </div>
+      <div class="container cta-panel">
+        <div>
+          <h2>Keep the miles. Drop the busywork.</h2>
+          <p class="cta-copy">TripLogger is designed to stay quiet while you drive and useful when you need your records.</p>
         </div>
+        <a class="cta-button" href="https://apps.apple.com/app/id675144677" target="_blank" rel="noopener noreferrer">View on the App Store</a>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-row">
-        <div>
-          <div class="brand"><span class="brand-mark" aria-hidden="true"></span><span>TripLogger</span></div>
-          <div style="font-size:13px; margin-top:8px;">© <span id="year">2026</span> TripLogger. All rights reserved.</div>
-        </div>
-        <div class="footer-links" aria-label="Footer links">
-          <a href="/privacy.html">Privacy Policy</a>
-          <a href="/terms.html">Terms of Service</a>
-          <a href="mailto:support@triplogger.app">Support</a>
-        </div>
-      </div>
-    </div>
+  <footer>
+    <div class="container">TripLogger for iPhone</div>
   </footer>
-
-  <script>
-    (function () {
-      var yearEl = document.getElementById('year');
-      if (yearEl) yearEl.textContent = String(new Date().getFullYear());
-
-      var nodes = document.querySelectorAll('.reveal');
-      if (!('IntersectionObserver' in window) || !nodes.length) {
-        nodes.forEach(function (node) { node.classList.add('visible'); });
-        return;
-      }
-
-      var observer = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-
-      nodes.forEach(function (node) { observer.observe(node); });
-    })();
-  </script>
 </body>
 </html>
